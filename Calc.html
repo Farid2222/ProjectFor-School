@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="outer">
-        <input type="text" id="display" />
+        <input type="text" id="display" value="0"/>
         <button onclick="SetNumber(this.textContent)">1</button>
         <button onclick="SetNumber(this.textContent)">2</button>
         <button onclick="SetNumber(this.textContent)">3</button>
@@ -20,10 +20,10 @@
         <button onclick="SetNumber(this.textContent)">7</button>
         <button onclick="SetNumber(this.textContent)">8</button>
         <button onclick="SetNumber(this.textContent)">9</button>
-        <button onclick="Operation(this.textContent)">+</button>
+        <button onclick="Operation(this.textContent)">*</button>
         <button onclick="SetNumber(this.textContent)">0</button>
         <button onclick="Operation(this.textContent)">+/-</button>
-        <button onclick="Operation(this.textContent)">=</button>
+        <button onclick="Result()">=</button>
         <button onclick="Operation(this.textContent)">/</button>
         <button onclick="Clear()">C</button>
     </div>
