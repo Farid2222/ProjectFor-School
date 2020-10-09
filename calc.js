@@ -1,6 +1,30 @@
 let okno, result, curOp="";
 okno = document.getElementById("display");
 
+function PlusMinus()
+{
+    result = okno.value.split(" ");
+    // проверка - является ли последний элемент числом
+    if ( Number.isInteger(parseInt(result[result.length - 1])) )
+    {
+        let num = result[result.length - 1] * (-1);
+        let s = "";
+        result[result.length - 1] = String(num);
+        for (let i = 0; i < result.length; i++)
+        {
+            // костыль, иначе после последнего числа будет пробел, из-за которого
+            // не будет смена знака работать не будет
+            if (i == result.length - 1)
+            {
+                s += result[i];
+                continue;
+            }
+            s += result[i] + " ";
+        }
+        okno.value = s;
+    }
+}
+
 function Result()
 {
     result = okno.value.split(" ");
@@ -23,7 +47,7 @@ function Result()
                 case "/":
                     if (parseInt(result[i + 1]) == 0)
                     {
-                        okno.value = "������� �� 0";
+                        okno.value = "Деление на 0";
                         return ;
                     }
                     s /= Integer.parseInt(s[i + 1]);
@@ -40,16 +64,21 @@ function Result()
 
 function Operation(op)
 {
-    // ���� ��������� ������ � ���� - �����, �� ��������� ���� �������������� ��������
+    // если последний символ в поле - цифра, то добавляем знак арифметической операции
     if (parseInt(okno.value[okno.value.length - 1]) >= 0 && parseInt(okno.value[okno.value.length - 1]) <= 9)
     {
         okno.value += " " + op + " ";
+    }
+    // иначе - меняем операцию
+    else
+    {
+        okno.value = okno.value.slice(0, okno.value.length - 3) + " " + op + " ";
     }
 }
 
 function SetNumber(num)
 {
-    // ���� � ���� �������� 0, ��������� ����
+    // если в поле значение 0, обновляем поле
     if (parseInt(okno.value) == 0)
     {
         okno.value = num;
