@@ -1,0 +1,24 @@
+﻿#outer, button, #display {
+    border-radius: 5px;
+}
+
+#outer {
+    border: 3px solid aqua;
+    width: 300px;
+    background-color: floralwhite;
+}
+#display {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    border: 3px solid orange;
+    width: 85%;
+    font: 14pt sans-serif;
+}
+button {
+    width: 20%;
+    margin-left: 10%;
+    font: 14pt sans-serif;
+}
